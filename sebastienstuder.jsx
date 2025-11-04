@@ -9,15 +9,6 @@ import { Separator } from "@/components/ui/separator";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Mail, Youtube, Instagram, Globe, BookOpen, Mic, Linkedin, Newspaper, ChevronRight, ExternalLink, Calendar, Ticket } from "lucide-react";
 
-// --------------------------------------------------------------------
-// Static asset convention: place these files in your Next.js /public/covers/
-// /public/covers/love-exposure.jpg
-// /public/covers/aligned.jpg
-// /public/covers/acai.png
-// /public/covers/instinct.jpg
-// /public/covers/ai-first.jpg
-// --------------------------------------------------------------------
-
 // ---------- Utility: Simple i18n (EN/FR/PT) ----------
 const copy = {
   en: {
@@ -284,11 +275,12 @@ export default function AuthorSite() {
                     <p className="text-sm text-slate-600">{c.newsletter.sub}</p>
                   </div>
                 </div>
-<form name="newsletter" method="POST" action="/__forms.html" data-netlify="true" className="mt-4 flex gap-2">
-  <input type="hidden" name="form-name" value="newsletter" />
-  <Input required name="email" placeholder={c.newsletter.placeholder} className="flex-1" />
-  <Button type="submit">{c.newsletter.button}</Button>
-</form>
+                {/* Netlify Forms-ready newsletter */}
+                <form name="newsletter" method="POST" action="/__forms.html" data-netlify="true" className="mt-4 flex gap-2">
+                  <input type="hidden" name="form-name" value="newsletter" />
+                  <Input required name="email" placeholder={c.newsletter.placeholder} className="flex-1"/>
+                  <Button type="submit">{c.newsletter.button}</Button>
+                </form>
                 <p className="mt-2 text-xs text-slate-500">1 click unsubscribe. Privacy‑first.</p>
               </CardContent>
             </Card>
@@ -298,7 +290,7 @@ export default function AuthorSite() {
 
       {/* BOOKS */}
       <Section id="books">
-        <div className="flex items-end justify-between gap-6">
+        <div className="flex items-end justify_between gap-6">
           <div>
             <h2 className="text-3xl font-bold">{c.books.heading}</h2>
             <p className="text-slate-600 mt-2">Non‑fiction that feels like a conversation. Fiction that lingers.</p>
@@ -414,14 +406,14 @@ export default function AuthorSite() {
               <CardTitle>Say hello</CardTitle>
             </CardHeader>
             <CardContent>
-<form name="contact" method="POST" action="/__forms.html" data-netlify="true" className="space-y-3">
-  <input type="hidden" name="form-name" value="contact" />
-  <Input required name="name" placeholder={c.contact.name} />
-  <Input required type="email" name="email" placeholder={c.contact.email} />
-  <Textarea required name="message" placeholder={c.contact.message} rows={5} />
-  <Button type="submit" className="rounded-xl">{c.contact.send}</Button>
-</form>
-
+              {/* Netlify Forms-ready contact */}
+              <form name="contact" method="POST" action="/__forms.html" data-netlify="true" className="space-y-3">
+                <input type="hidden" name="form-name" value="contact" />
+                <Input required name="name" placeholder={c.contact.name}/>
+                <Input required type="email" name="email" placeholder={c.contact.email}/>
+                <Textarea required name="message" placeholder={c.contact.message} rows={5}/>
+                <Button type="submit" className="rounded-xl">{c.contact.send}</Button>
+              </form>
             </CardContent>
           </Card>
         </div>

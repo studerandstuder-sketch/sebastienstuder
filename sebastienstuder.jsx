@@ -1,4 +1,3 @@
-/* Updated component with author photo and full bio */
 import React, { useMemo, useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
@@ -24,41 +23,11 @@ const copy = {
       heading: "Books",
       viewAll: "View all on Amazon",
       items: [
-        {
-          title: "Love Exposure: The Hidden Financial Risks of Marriage",
-          tag: "Personal Finance · Relationships",
-          blurb: "A clear-eyed guide to protecting love, assets, and peace of mind—with score-style assessments and real-world tools.",
-          img: "/covers/love-exposure.jpg",
-          links: { sample: "#", store: "#" }
-        },
-        {
-          title: "Aligned: The Small Steps to a Healthier, Happier Life",
-          tag: "Habits · Health · Clarity",
-          blurb: "Tiny, compounding habits for energy, focus, and a calmer brain.",
-          img: "/covers/aligned.jpg",
-          links: { sample: "#", store: "#" }
-        },
-        {
-          title: "Açaí (Novel)",
-          tag: "Fiction · Family · Tech",
-          blurb: "A modern fable about a boy, a family, and the cost of ‘fixing’ what makes us human.",
-          img: "/covers/acai.png",
-          links: { sample: "#", store: "#" }
-        },
-        {
-          title: "Instinct: The Animal Inside You",
-          tag: "Mindset · Purpose",
-          blurb: "A sharp meditation on place, nature, and the inner compass.",
-          img: "/covers/instinct.jpg",
-          links: { sample: "#", store: "#" }
-        },
-        {
-          title: "AI FIRST",
-          tag: "Technology · Society",
-          blurb: "How we handed our humanity to machines, one decision at a time.",
-          img: "/covers/ai-first.jpg",
-          links: { sample: "#", store: "#" }
-        }
+        { title: "Love Exposure: The Hidden Financial Risks of Marriage", tag: "Personal Finance · Relationships", blurb: "A clear-eyed guide to protecting love, assets, and peace of mind—with score-style assessments and real-world tools.", img: "/covers/love-exposure.jpg", links: { sample: "#", store: "#" } },
+        { title: "Aligned: The Small Steps to a Healthier, Happier Life", tag: "Habits · Health · Clarity", blurb: "Tiny, compounding habits for energy, focus, and a calmer brain.", img: "/covers/aligned.jpg", links: { sample: "#", store: "#" } },
+        { title: "Açaí (Novel)", tag: "Fiction · Family · Tech", blurb: "A modern fable about a boy, a family, and the cost of ‘fixing’ what makes us human.", img: "/covers/acai.png", links: { sample: "#", store: "#" } },
+        { title: "Instinct: The Animal Inside You", tag: "Mindset · Purpose", blurb: "A sharp meditation on place, nature, and the inner compass.", img: "/covers/instinct.jpg", links: { sample: "#", store: "#" } },
+        { title: "AI FIRST", tag: "Technology · Society", blurb: "How we handed our humanity to machines, one decision at a time.", img: "/covers/ai-first.jpg", links: { sample: "#", store: "#" } }
       ]
     },
     about: {
@@ -78,16 +47,11 @@ When he’s not writing or working, Sébastien enjoys tennis, traveling with his
 — Sébastien Studer`,
       highlights: ["Miami-based", "Non‑fiction & fiction", "YouTube & podcasts", "EN/FR/PT"]
     },
-    press: {
-      heading: "Press & Media",
-      kit: "Download Media Kit",
-      blurb: "Short and long bios, press photos, book one‑pagers, and brand assets. For interviews, speaking, and features.",
-      samples: [
-        { title: "Talking Love & Money", kind: "Podcast", cta: "Listen" },
-        { title: "Aligned Habits, Real Life", kind: "YouTube", cta: "Watch" },
-        { title: "The Love Exposure Score", kind: "Article", cta: "Read" }
-      ]
-    },
+    press: { heading: "Press & Media", kit: "Download Media Kit", blurb: "Short and long bios, press photos, book one‑pagers, and brand assets. For interviews, speaking, and features.", samples: [
+      { title: "Talking Love & Money", kind: "Podcast", cta: "Listen" },
+      { title: "Aligned Habits, Real Life", kind: "YouTube", cta: "Watch" },
+      { title: "The Love Exposure Score", kind: "Article", cta: "Read" }
+    ] },
     events: { heading: "Events", sub: "Upcoming talks, signings, and interviews", empty: "New dates coming soon." },
     newsletter: { heading: "Get one thoughtful email / month", sub: "No spam. Just practical ideas and behind‑the‑scenes notes.", placeholder: "Your email", button: "Subscribe" },
     contact: { heading: "Contact", sub: "Speaking, media, rights, collaboration", name: "Your name", email: "Your email", message: "How can I help?", send: "Send Message" },
@@ -129,17 +93,16 @@ export default function AuthorSite() {
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           <a href="#top" className="font-semibold tracking-tight text-slate-900">Sébastien Studer</a>
           <nav className="hidden md:flex items-center gap-6 text-sm">
-            <a href="#books" className="hover:text-slate-900/70">Books</a>
-            <a href="#about" className="hover:text-slate-900/70">About</a>
-            <a href="#press" className="hover:text-slate-900/70">Press</a>
-            <a href="#events" className="hover:text-slate-900/70">Events</a>
-            <a href="#contact" className="hover:text-slate-900/70">Contact</a>
-            <a href={AMAZON_AUTHOR_URL} target="_blank" rel="noopener noreferrer" className="hover:underline">Amazon</a>
+            <a href="#books" className="hover:text-slate-900/70">{c.nav.books}</a>
+            <a href="#about" className="hover:text-slate-900/70">{c.nav.about}</a>
+            <a href="#press" className="hover:text-slate-900/70">{c.nav.press}</a>
+            <a href="#events" className="hover:text-slate-900/70">{c.nav.events}</a>
+            <a href="#contact" className="hover:text-slate-900/70">{c.nav.contact}</a>
+            <a href={AMAZON_AUTHOR_URL} target="_blank" rel="noopener noreferrer" className="hover:underline">{c.nav.amazon}</a>
           </nav>
         </div>
       </header>
 
-      {/* HERO */}
       <Section id="top">
         <div className="grid md:grid-cols-2 gap-10 items-center">
           <motion.div initial={{opacity:0, y:10}} animate={{opacity:1, y:0}} transition={{duration:0.6}}>
@@ -158,14 +121,12 @@ export default function AuthorSite() {
               ))}
             </div>
           </motion.div>
-
-          {/* Author photo card */}
-          <motion.div initial={{opacity:0, y:10}} animate={{opacity:1, y:0}} transition={{duration:0.6, delay:0.1}} className="md:justify-self-end w-full max-w-md">
+          <motion.div initial={{opacity:0, y:10}} animate={{opacity:1, y:0}} transition={{duration:0.6, delay:0.1}} className="md:justify-self-end w-full max-w-sm">
             <Card className="rounded-2xl shadow-sm overflow-hidden">
-              <img src="/author.jpg" alt="Sébastien Studer portrait" className="w-full h-64 object-cover"/>
+              <img src="/author.jpg" alt="Sébastien Studer portrait" className="w-full h-56 md:h-64 object-cover"/>
               <CardContent className="p-6">
                 <div className="flex items-center gap-4">
-                  <Avatar className="h-14 w-14 rounded-xl">
+                  <Avatar className="h-12 w-12 rounded-xl">
                     <AvatarImage src="/author.jpg" alt="Sébastien Studer"/><AvatarFallback>SS</AvatarFallback>
                   </Avatar>
                   <div><h3 className="font-semibold">Newsletter</h3><p className="text-sm text-slate-600">{c.newsletter.sub}</p></div>
@@ -182,7 +143,6 @@ export default function AuthorSite() {
         </div>
       </Section>
 
-      {/* ABOUT with full bio */}
       <Section id="about">
         <div className="grid md:grid-cols-3 gap-8 items-start">
           <div className="md:col-span-2">
@@ -203,7 +163,6 @@ export default function AuthorSite() {
         </div>
       </Section>
 
-      {/* BOOKS */}
       <Section id="books">
         <div className="flex items-end justify-between gap-6">
           <div>
@@ -214,9 +173,9 @@ export default function AuthorSite() {
             {c.books.viewAll} <ExternalLink className="h-3.5 w-3.5"/>
           </a>
         </div>
-        <div className="mt-8 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
+        <div className="mt-8 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6 justify-items-center">
           {c.books.items.map((b, i) => (
-            <Card key={i} className="rounded-2xl shadow-sm hover:shadow-md transition-shadow">
+            <Card key={i} className="w-full max-w-[220px] rounded-2xl shadow-sm hover:shadow-md transition-shadow">
               <CardHeader>
                 <div className="aspect-[2/3] w-full overflow-hidden rounded-xl bg-slate-100">
                   <img src={b.img} alt={`${b.title} cover`} className="h-full w-full object-cover"/>
@@ -235,8 +194,6 @@ export default function AuthorSite() {
           ))}
         </div>
       </Section>
-
-      {/* PRESS, EVENTS, CONTACT, FOOTER omitted for brevity - keep your existing ones */}
     </div>
   );
 }

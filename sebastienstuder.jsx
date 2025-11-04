@@ -284,11 +284,11 @@ export default function AuthorSite() {
                     <p className="text-sm text-slate-600">{c.newsletter.sub}</p>
                   </div>
                 </div>
-                <form name="newsletter" method="POST" data-netlify="true" className="mt-4 flex gap-2">
-                  <input type="hidden" name="form-name" value="newsletter"/>
-                  <Input required name="email" placeholder={c.newsletter.placeholder} className="flex-1"/>
-                  <Button type="submit">{c.newsletter.button}</Button>
-                </form>
+<form name="newsletter" method="POST" action="/__forms.html" data-netlify="true" className="mt-4 flex gap-2">
+  <input type="hidden" name="form-name" value="newsletter" />
+  <Input required name="email" placeholder={c.newsletter.placeholder} className="flex-1" />
+  <Button type="submit">{c.newsletter.button}</Button>
+</form>
                 <p className="mt-2 text-xs text-slate-500">1 click unsubscribe. Privacy‑first.</p>
               </CardContent>
             </Card>
@@ -414,13 +414,14 @@ export default function AuthorSite() {
               <CardTitle>Say hello</CardTitle>
             </CardHeader>
             <CardContent>
-              <form name="contact" method="POST" data-netlify="true" className="space-y-3">
-                <input type="hidden" name="form-name" value="contact"/>
-                <Input required name="name" placeholder={c.contact.name}/>
-                <Input required type="email" name="email" placeholder={c.contact.email}/>
-                <Textarea required name="message" placeholder={c.contact.message} rows={5}/>
-                <Button type="submit" className="rounded-xl">{c.contact.send}</Button>
-              </form>
+<form name="contact" method="POST" action="/__forms.html" data-netlify="true" className="space-y-3">
+  <input type="hidden" name="form-name" value="contact" />
+  <Input required name="name" placeholder={c.contact.name} />
+  <Input required type="email" name="email" placeholder={c.contact.email} />
+  <Textarea required name="message" placeholder={c.contact.message} rows={5} />
+  <Button type="submit" className="rounded-xl">{c.contact.send}</Button>
+</form>
+
             </CardContent>
           </Card>
         </div>
